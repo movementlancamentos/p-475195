@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ArrowRight, Brain, Target, Users } from "lucide-react";
@@ -19,13 +20,13 @@ const Hero = () => {
   
   return (
     <section 
-      className="overflow-hidden relative bg-gradient-hero" 
+      className="overflow-hidden relative bg-gradient-intense" 
       id="hero" 
       style={{
-        padding: isMobile ? '100px 12px 40px' : '120px 20px 60px'
+        padding: isMobile ? '60px 12px 40px' : '80px 20px 60px'
       }}
     >
-      <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-mentor-gradient opacity-20 blur-3xl rounded-full"></div>
+      <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-mentor-gradient opacity-30 blur-3xl rounded-full"></div>
       
       <div className="container px-4 sm:px-6 lg:px-8" ref={containerRef}>
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-center">
@@ -54,7 +55,7 @@ const Hero = () => {
             </p>
             
             <div 
-              className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in" 
+              className="flex justify-center sm:justify-start opacity-0 animate-fade-in" 
               style={{ animationDelay: "0.7s" }}
             >
               <a 
@@ -63,13 +64,6 @@ const Hero = () => {
               >
                 Garantir Minha Vaga
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </a>
-              
-              <a 
-                href="#detalhes" 
-                className="flex items-center justify-center w-full sm:w-auto text-center bg-transparent border-glow text-gray-300 hover:text-mentor-500 font-medium py-4 px-8 rounded-full transition-all duration-300"
-              >
-                Saber Mais
               </a>
             </div>
 
@@ -93,20 +87,20 @@ const Hero = () => {
           <div className="w-full lg:w-1/2 relative mt-6 lg:mt-0">
             <div className="relative z-10 animate-fade-in" style={{ animationDelay: "0.9s" }}>
               {/* AI/Tech visualization */}
-              <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl glow-card p-8">
+              <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl glow-card corner-glow p-8">
                 <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="bg-mentor-500/20 rounded-lg p-4 backdrop-blur-sm border-glow">
+                  <div className="bg-mentor-500/20 rounded-lg p-4 backdrop-blur-sm border-glow edge-light">
                     <Brain className="w-8 h-8 text-mentor-400 mb-2" />
                     <h3 className="text-sm font-semibold text-white">IA Personalizada</h3>
                     <p className="text-xs text-gray-400">Aprendizado adaptativo</p>
                   </div>
-                  <div className="bg-mentor-500/20 rounded-lg p-4 backdrop-blur-sm border-glow">
+                  <div className="bg-mentor-500/20 rounded-lg p-4 backdrop-blur-sm border-glow edge-light">
                     <Target className="w-8 h-8 text-mentor-400 mb-2" />
                     <h3 className="text-sm font-semibold text-white">Foco em Resultados</h3>
                     <p className="text-xs text-gray-400">Objetivos claros</p>
                   </div>
                 </div>
-                <div className="bg-mentor-500/20 rounded-lg p-4 backdrop-blur-sm border-glow">
+                <div className="bg-mentor-500/20 rounded-lg p-4 backdrop-blur-sm border-glow edge-light">
                   <Users className="w-8 h-8 text-mentor-400 mb-2" />
                   <h3 className="text-sm font-semibold text-white">Mentoria 1:1</h3>
                   <p className="text-xs text-gray-400">Acompanhamento personalizado com especialistas</p>

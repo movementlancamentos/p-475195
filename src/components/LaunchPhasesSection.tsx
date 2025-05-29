@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Target, Zap, DoorOpen, TrendingUp, Clock, Lock, Trophy } from "lucide-react";
 
@@ -55,7 +56,7 @@ const LaunchPhasesSection = () => {
   ];
 
   return (
-    <section className="w-full py-16 bg-gradient-blue" id="fases-lancamento">
+    <section className="w-full py-16 bg-gradient-intense" id="fases-lancamento">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         {/* Header */}
         <div className="flex items-center gap-4 mb-16">
@@ -82,15 +83,15 @@ const LaunchPhasesSection = () => {
             return (
               <div 
                 key={index}
-                className="group relative glow-card rounded-2xl p-6 transition-all duration-500 hover:transform hover:scale-105"
+                className="group relative glow-card corner-glow rounded-2xl p-6 transition-all duration-500 hover:transform hover:scale-105"
               >
                 {/* Phase Number */}
-                <div className="absolute -top-3 -right-3 w-12 h-12 rounded-full bg-gradient-to-r from-mentor-600 to-mentor-500 flex items-center justify-center text-white font-bold text-sm pulse-glow">
+                <div className="absolute -top-3 -right-3 w-12 h-12 rounded-full bg-gradient-to-r from-mentor-600 to-mentor-500 flex items-center justify-center text-white font-bold text-sm pulse-glow edge-light">
                   {phase.number}
                 </div>
 
                 {/* Icon */}
-                <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${phase.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border-glow`}>
+                <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${phase.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border-glow corner-glow`}>
                   <IconComponent className="w-8 h-8 text-white" />
                 </div>
 
@@ -111,7 +112,7 @@ const LaunchPhasesSection = () => {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <div className="glow-card rounded-2xl p-8">
+          <div className="glow-card corner-glow rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-white mb-4">
               Quer Aplicar Esta Metodologia no Seu Negócio?
             </h3>

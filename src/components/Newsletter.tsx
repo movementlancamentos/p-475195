@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { toast } from "@/components/ui/use-toast";
 
@@ -28,7 +29,7 @@ const Newsletter = () => {
   };
 
   return (
-    <section id="lista-vip" className="bg-gradient-blue-intense py-16 border-t border-gray-800">
+    <section id="lista-vip" className="bg-gradient-intense py-16 border-t border-gray-800">
       <div className="section-container opacity-0 animate-on-scroll">
         <div className="max-w-6xl mx-auto text-center">
           <div className="flex items-center justify-center gap-4 mb-6">
@@ -47,17 +48,17 @@ const Newsletter = () => {
           
           {/* Benefits */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            <div className="glow-card p-6 rounded-xl">
+            <div className="glow-card corner-glow p-6 rounded-xl">
               <div className="text-2xl mb-2">🔥</div>
               <h3 className="text-white font-semibold mb-2">Acesso Antecipado</h3>
               <p className="text-gray-400 text-sm">Garanta sua vaga antes do lançamento público</p>
             </div>
-            <div className="glow-card p-6 rounded-xl">
+            <div className="glow-card corner-glow p-6 rounded-xl">
               <div className="text-2xl mb-2">💰</div>
               <h3 className="text-white font-semibold mb-2">Desconto Exclusivo</h3>
               <p className="text-gray-400 text-sm">Até 50% OFF para membros VIP</p>
             </div>
-            <div className="glow-card p-6 rounded-xl">
+            <div className="glow-card corner-glow p-6 rounded-xl">
               <div className="text-2xl mb-2">🎁</div>
               <h3 className="text-white font-semibold mb-2">Bônus Gratuitos</h3>
               <p className="text-gray-400 text-sm">Ebooks, templates e conteúdos exclusivos</p>

@@ -1,6 +1,5 @@
 
 import React, { useEffect } from "react";
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import HumanoidSection from "@/components/HumanoidSection";
 import SpecsSection from "@/components/SpecsSection";
@@ -48,8 +47,8 @@ const Index = () => {
         const targetElement = document.getElementById(targetId);
         if (!targetElement) return;
         
-        // Increased offset to account for mobile nav
-        const offset = window.innerWidth < 768 ? 100 : 80;
+        // Reduced offset since we removed the navbar
+        const offset = 20;
         
         window.scrollTo({
           top: targetElement.offsetTop - offset,
@@ -61,7 +60,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
       <main className="space-y-4 sm:space-y-8">
         <Hero />
         <HumanoidSection />

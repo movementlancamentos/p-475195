@@ -42,7 +42,6 @@ const FeatureCard = ({ icon, title, description, index }: FeatureCardProps) => {
       ref={cardRef}
       className={cn(
         "glow-card corner-glow opacity-0 p-4 sm:p-6 rounded-2xl",
-        "lg:hover:bg-gradient-to-br lg:hover:from-gray-800 lg:hover:to-mentor-900/20",
         "transition-all duration-300"
       )}
       style={{ animationDelay: `${0.1 * index}s` }}

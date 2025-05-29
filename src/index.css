@@ -155,15 +155,15 @@
   }
 
   .glass-card {
-    @apply bg-gray-900/70 backdrop-blur-sm border border-gray-700/20 rounded-2xl shadow-elegant transition-all duration-300 hover:shadow-elegant-hover;
+    @apply bg-gray-900/70 backdrop-blur-sm border border-gray-700/20 rounded-2xl shadow-elegant transition-all duration-300;
   }
 
   .feature-card {
-    @apply p-6 rounded-2xl transition-all duration-500 hover:translate-y-[-5px] bg-gray-900/50 border border-gray-700/30;
+    @apply p-6 rounded-2xl transition-all duration-300 bg-gray-900/50 border border-gray-700/30;
   }
   
   .button-primary {
-    @apply bg-mentor-500 hover:bg-mentor-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-[1.02] active:scale-[0.98];
+    @apply bg-mentor-500 hover:bg-mentor-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg;
   }
 
   .button-secondary {
@@ -174,179 +174,101 @@
     @apply relative text-gray-300 hover:text-mentor-500 py-2 transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-mentor-500 after:transition-all hover:after:w-full;
   }
 
-  /* Gradient Backgrounds - Intensified */
+  /* Gradient Backgrounds - Blue Only */
   .bg-gradient-blue {
-    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.25) 0%, rgba(147, 51, 234, 0.15) 35%, rgba(0, 0, 0, 0.9) 70%);
+    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.25) 0%, rgba(37, 99, 235, 0.15) 35%, rgba(0, 0, 0, 0.9) 70%);
   }
 
   .bg-gradient-blue-intense {
-    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.4) 0%, rgba(147, 51, 234, 0.25) 40%, rgba(0, 0, 0, 0.95) 80%);
+    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.4) 0%, rgba(37, 99, 235, 0.25) 40%, rgba(0, 0, 0, 0.95) 80%);
   }
 
   .bg-gradient-hero {
     background: 
-      radial-gradient(ellipse at top right, rgba(59, 130, 246, 0.35) 0%, rgba(147, 51, 234, 0.2) 25%, transparent 50%),
-      radial-gradient(ellipse at bottom left, rgba(37, 99, 235, 0.25) 0%, rgba(79, 70, 229, 0.15) 30%, transparent 50%),
-      radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, transparent 40%),
+      radial-gradient(ellipse at top center, rgba(59, 130, 246, 0.4) 0%, rgba(37, 99, 235, 0.25) 25%, transparent 50%),
+      radial-gradient(ellipse at bottom center, rgba(30, 64, 175, 0.25) 0%, rgba(30, 58, 138, 0.15) 30%, transparent 50%),
+      radial-gradient(circle at center, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
       #000000;
   }
 
   .bg-gradient-intense {
     background: 
-      radial-gradient(ellipse at top, rgba(59, 130, 246, 0.5) 0%, rgba(147, 51, 234, 0.35) 25%, rgba(79, 70, 229, 0.2) 50%, transparent 70%),
+      radial-gradient(ellipse at top, rgba(59, 130, 246, 0.5) 0%, rgba(37, 99, 235, 0.35) 25%, rgba(30, 64, 175, 0.2) 50%, transparent 70%),
       radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.4) 0%, transparent 50%),
-      radial-gradient(circle at 20% 80%, rgba(147, 51, 234, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 20% 80%, rgba(30, 64, 175, 0.3) 0%, transparent 50%),
       #000000;
   }
 
-  /* Enhanced Glow Effects */
+  /* Static Glow Effects */
   .glow-card {
     position: relative;
     background: rgba(17, 24, 39, 0.8);
     border: 1px solid rgba(59, 130, 246, 0.3);
     box-shadow: 
-      0 0 25px rgba(59, 130, 246, 0.15),
-      0 0 50px rgba(59, 130, 246, 0.08),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      0 0 20px rgba(59, 130, 246, 0.1),
+      0 0 40px rgba(59, 130, 246, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(12px);
     transition: all 0.3s ease;
   }
 
-  .glow-card:hover {
-    border-color: rgba(59, 130, 246, 0.5);
-    box-shadow: 
-      0 0 35px rgba(59, 130, 246, 0.25),
-      0 0 70px rgba(59, 130, 246, 0.15),
-      0 0 100px rgba(147, 51, 234, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    transform: translateY(-3px);
-  }
-
   .glow-button {
     position: relative;
-    background: linear-gradient(135deg, #3b82f6, #2563eb, #6366f1);
-    border: 1px solid rgba(59, 130, 246, 0.6);
+    background: linear-gradient(135deg, #3b82f6, #2563eb, #1d4ed8);
+    border: 1px solid rgba(59, 130, 246, 0.4);
     box-shadow: 
-      0 0 25px rgba(59, 130, 246, 0.4),
-      0 0 50px rgba(59, 130, 246, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      0 0 20px rgba(59, 130, 246, 0.2),
+      0 0 40px rgba(59, 130, 246, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
-  }
-
-  .glow-button:hover {
-    box-shadow: 
-      0 0 35px rgba(59, 130, 246, 0.6),
-      0 0 70px rgba(59, 130, 246, 0.3),
-      0 0 100px rgba(147, 51, 234, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
   }
 
   .glow-input {
     background: rgba(17, 24, 39, 0.9);
     border: 1px solid rgba(59, 130, 246, 0.3);
     box-shadow: 
-      0 0 20px rgba(59, 130, 246, 0.15),
-      0 0 40px rgba(59, 130, 246, 0.08),
-      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      0 0 15px rgba(59, 130, 246, 0.1),
+      0 0 30px rgba(59, 130, 246, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(8px);
     transition: all 0.3s ease;
   }
 
   .glow-input:focus {
-    border-color: rgba(59, 130, 246, 0.6);
+    border-color: rgba(59, 130, 246, 0.5);
     box-shadow: 
-      0 0 30px rgba(59, 130, 246, 0.25),
-      0 0 60px rgba(59, 130, 246, 0.15),
-      0 0 90px rgba(147, 51, 234, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      0 0 25px rgba(59, 130, 246, 0.15),
+      0 0 50px rgba(59, 130, 246, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
     outline: none;
   }
 
-  /* NEW: Corner Glow Effects */
+  /* Subtle Static Border Glow */
   .corner-glow {
     position: relative;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 
+      0 0 15px rgba(59, 130, 246, 0.08),
+      0 0 30px rgba(59, 130, 246, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
   }
 
-  .corner-glow::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, 
-      rgba(59, 130, 246, 0.6) 0%, 
-      transparent 25%, 
-      transparent 75%, 
-      rgba(147, 51, 234, 0.6) 100%);
-    border-radius: inherit;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .corner-glow:hover::before {
-    opacity: 1;
-  }
-
-  /* NEW: Edge Lighting Effects */
+  /* Static Edge Lighting */
   .edge-light {
     position: relative;
-    border: 1px solid transparent;
-    background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)) padding-box,
-                linear-gradient(90deg, 
-                  rgba(59, 130, 246, 0.8) 0%, 
-                  rgba(147, 51, 234, 0.6) 50%, 
-                  rgba(59, 130, 246, 0.8) 100%) border-box;
-    animation: edge-pulse 3s ease-in-out infinite;
-  }
-
-  @keyframes edge-pulse {
-    0%, 100% {
-      background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)) padding-box,
-                  linear-gradient(90deg, 
-                    rgba(59, 130, 246, 0.4) 0%, 
-                    rgba(147, 51, 234, 0.3) 50%, 
-                    rgba(59, 130, 246, 0.4) 100%) border-box;
-    }
-    50% {
-      background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)) padding-box,
-                  linear-gradient(90deg, 
-                    rgba(59, 130, 246, 0.8) 0%, 
-                    rgba(147, 51, 234, 0.6) 50%, 
-                    rgba(59, 130, 246, 0.8) 100%) border-box;
-    }
-  }
-
-  /* Pulse Glow Animation - Enhanced */
-  .pulse-glow {
-    animation: pulse-glow 3s ease-in-out infinite;
-  }
-
-  @keyframes pulse-glow {
-    0%, 100% {
-      box-shadow: 
-        0 0 20px rgba(59, 130, 246, 0.2),
-        0 0 40px rgba(59, 130, 246, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    }
-    50% {
-      box-shadow: 
-        0 0 35px rgba(59, 130, 246, 0.4),
-        0 0 70px rgba(59, 130, 246, 0.2),
-        0 0 100px rgba(147, 51, 234, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    }
-  }
-
-  /* Subtle Border Glow - Enhanced */
-  .border-glow {
     border: 1px solid rgba(59, 130, 246, 0.4);
     box-shadow: 
-      0 0 15px rgba(59, 130, 246, 0.15),
-      0 0 30px rgba(59, 130, 246, 0.08),
-      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      0 0 10px rgba(59, 130, 246, 0.1),
+      0 0 20px rgba(59, 130, 246, 0.05);
+  }
+
+  /* Subtle Border Glow - Static */
+  .border-glow {
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 
+      0 0 10px rgba(59, 130, 246, 0.08),
+      0 0 20px rgba(59, 130, 246, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.03);
   }
 }
 
@@ -385,10 +307,6 @@
 
 .hover-lift {
   transition: transform 0.3s ease;
-}
-
-.hover-lift:hover {
-  transform: translateY(-5px);
 }
 
 /* Parallax effect */

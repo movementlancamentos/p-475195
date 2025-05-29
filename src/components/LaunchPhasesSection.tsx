@@ -30,28 +30,28 @@ const LaunchPhasesSection = () => {
       title: "Momentum",
       description: "Acelerando as inscrições com prova social",
       icon: TrendingUp,
-      color: "from-green-500 to-green-400"
+      color: "from-blue-500 to-blue-400"
     },
     {
       number: "05",
       title: "Urgência",
       description: "Últimas oportunidades e escassez real",
       icon: Clock,
-      color: "from-yellow-500 to-yellow-400"
+      color: "from-blue-600 to-blue-500"
     },
     {
       number: "06",
       title: "Fechamento",
       description: "Vagas esgotadas e lista de espera ativa",
       icon: Lock,
-      color: "from-red-500 to-red-400"
+      color: "from-blue-700 to-blue-600"
     },
     {
       number: "07",
       title: "Pós-Lançamento",
       description: "Acompanhamento e preparação próxima turma",
       icon: Trophy,
-      color: "from-purple-500 to-purple-400"
+      color: "from-blue-800 to-blue-700"
     }
   ];
 
@@ -83,28 +83,25 @@ const LaunchPhasesSection = () => {
             return (
               <div 
                 key={index}
-                className="group relative glow-card corner-glow rounded-2xl p-6 transition-all duration-500 hover:transform hover:scale-105"
+                className="group relative glow-card corner-glow rounded-2xl p-6 transition-all duration-300"
               >
                 {/* Phase Number */}
-                <div className="absolute -top-3 -right-3 w-12 h-12 rounded-full bg-gradient-to-r from-mentor-600 to-mentor-500 flex items-center justify-center text-white font-bold text-sm pulse-glow edge-light">
+                <div className="absolute -top-3 -right-3 w-12 h-12 rounded-full bg-gradient-to-r from-mentor-600 to-mentor-500 flex items-center justify-center text-white font-bold text-sm edge-light">
                   {phase.number}
                 </div>
 
                 {/* Icon */}
-                <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${phase.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border-glow corner-glow`}>
+                <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${phase.color} flex items-center justify-center mb-4 transition-transform duration-300 border-glow corner-glow`}>
                   <IconComponent className="w-8 h-8 text-white" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-mentor-400 transition-colors">
+                <h3 className="text-xl font-bold text-white mb-3 transition-colors">
                   {phase.title}
                 </h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
                   {phase.description}
                 </p>
-
-                {/* Hover effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-mentor-600/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
               </div>
             );
           })}
@@ -119,7 +116,7 @@ const LaunchPhasesSection = () => {
             <p className="text-gray-400 mb-6">
               Aprenda como replicar este sistema que já transformou centenas de carreiras
             </p>
-            <button className="glow-button text-white font-bold py-4 px-8 rounded-full transform hover:scale-105">
+            <button className="glow-button text-white font-bold py-4 px-8 rounded-full transition-all duration-300">
               Quero Aprender Esta Metodologia
             </button>
           </div>

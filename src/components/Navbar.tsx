@@ -18,7 +18,6 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    // Prevent background scrolling when menu is open
     document.body.style.overflow = !isMenuOpen ? 'hidden' : '';
   };
 
@@ -28,7 +27,6 @@ const Navbar = () => {
       behavior: 'smooth'
     });
     
-    // Close mobile menu if open
     if (isMenuOpen) {
       setIsMenuOpen(false);
       document.body.style.overflow = '';
@@ -40,7 +38,7 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 py-2 sm:py-3 md:py-4 transition-all duration-300",
         isScrolled 
-          ? "bg-white/80 backdrop-blur-md shadow-sm" 
+          ? "bg-black/80 backdrop-blur-md shadow-sm border-b border-gray-800" 
           : "bg-transparent"
       )}
     >
@@ -52,13 +50,11 @@ const Navbar = () => {
             e.preventDefault();
             scrollToTop();
           }}
-          aria-label="Pulse Robot"
+          aria-label="Mentoria IA"
         >
-          <img 
-            src="/logo.svg" 
-            alt="Pulse Robot Logo" 
-            className="h-7 sm:h-8" 
-          />
+          <div className="text-2xl font-bold text-white">
+            Mentoria <span className="text-mentor-400">IA</span>
+          </div>
         </a>
 
         {/* Desktop Navigation */}
@@ -71,15 +67,17 @@ const Navbar = () => {
               scrollToTop();
             }}
           >
-            Home
+            Início
           </a>
-          <a href="#features" className="nav-link">About</a>
-          <a href="#details" className="nav-link">Contact</a>
+          <a href="#beneficios" className="nav-link">Benefícios</a>
+          <a href="#programa" className="nav-link">Programa</a>
+          <a href="#depoimentos" className="nav-link">Depoimentos</a>
+          <a href="#inscricao" className="nav-link">Inscrição</a>
         </nav>
 
-        {/* Mobile menu button - increased touch target */}
+        {/* Mobile menu button */}
         <button 
-          className="md:hidden text-gray-700 p-3 focus:outline-none" 
+          className="md:hidden text-gray-300 p-3 focus:outline-none" 
           onClick={toggleMenu}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
@@ -87,15 +85,15 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation - improved for better touch experience */}
+      {/* Mobile Navigation */}
       <div className={cn(
-        "fixed inset-0 z-40 bg-white flex flex-col pt-16 px-6 md:hidden transition-all duration-300 ease-in-out",
+        "fixed inset-0 z-40 bg-black flex flex-col pt-16 px-6 md:hidden transition-all duration-300 ease-in-out",
         isMenuOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none"
       )}>
         <nav className="flex flex-col space-y-8 items-center mt-8">
           <a 
             href="#" 
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
+            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-800 text-white" 
             onClick={(e) => {
               e.preventDefault();
               scrollToTop();
@@ -103,27 +101,47 @@ const Navbar = () => {
               document.body.style.overflow = '';
             }}
           >
-            Home
+            Início
           </a>
           <a 
-            href="#features" 
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
+            href="#beneficios" 
+            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-800 text-white" 
             onClick={() => {
               setIsMenuOpen(false);
               document.body.style.overflow = '';
             }}
           >
-            About
+            Benefícios
           </a>
           <a 
-            href="#details" 
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
+            href="#programa" 
+            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-800 text-white" 
             onClick={() => {
               setIsMenuOpen(false);
               document.body.style.overflow = '';
             }}
           >
-            Contact
+            Programa
+          </a>
+          <a 
+            href="#depoimentos" 
+            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-800 text-white" 
+            onClick={() => {
+              setIsMenuOpen(false);
+              document.body.style.overflow = '';
+            }}
+          >
+            Depoimentos
+          </a>
+          <a 
+            href="#inscricao" 
+            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-800 text-white" 
+            onClick={() => {
+              setIsMenuOpen(false);
+              document.body.style.overflow = '';
+            }}
+          >
+            Inscrição
           </a>
         </nav>
       </div>

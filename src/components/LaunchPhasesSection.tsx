@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Target, Zap, DoorOpen, TrendingUp, Clock, Lock, Trophy } from "lucide-react";
 
@@ -56,7 +55,7 @@ const LaunchPhasesSection = () => {
   ];
 
   return (
-    <section className="w-full py-16 bg-black" id="fases-lancamento">
+    <section className="w-full py-16 bg-gradient-blue" id="fases-lancamento">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         {/* Header */}
         <div className="flex items-center gap-4 mb-16">
@@ -83,15 +82,15 @@ const LaunchPhasesSection = () => {
             return (
               <div 
                 key={index}
-                className="group relative bg-gray-900/50 rounded-2xl p-6 border border-gray-700/50 hover:border-mentor-500/50 transition-all duration-500 hover:transform hover:scale-105"
+                className="group relative glow-card rounded-2xl p-6 transition-all duration-500 hover:transform hover:scale-105"
               >
                 {/* Phase Number */}
-                <div className="absolute -top-3 -right-3 w-12 h-12 rounded-full bg-gradient-to-r from-mentor-600 to-mentor-500 flex items-center justify-center text-white font-bold text-sm">
+                <div className="absolute -top-3 -right-3 w-12 h-12 rounded-full bg-gradient-to-r from-mentor-600 to-mentor-500 flex items-center justify-center text-white font-bold text-sm pulse-glow">
                   {phase.number}
                 </div>
 
                 {/* Icon */}
-                <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${phase.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${phase.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border-glow`}>
                   <IconComponent className="w-8 h-8 text-white" />
                 </div>
 
@@ -112,14 +111,14 @@ const LaunchPhasesSection = () => {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-mentor-600/20 to-mentor-400/20 rounded-2xl p-8 border border-mentor-500/30">
+          <div className="glow-card rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-white mb-4">
               Quer Aplicar Esta Metodologia no Seu Negócio?
             </h3>
             <p className="text-gray-400 mb-6">
               Aprenda como replicar este sistema que já transformou centenas de carreiras
             </p>
-            <button className="bg-mentor-500 hover:bg-mentor-600 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+            <button className="glow-button text-white font-bold py-4 px-8 rounded-full transform hover:scale-105">
               Quero Aprender Esta Metodologia
             </button>
           </div>

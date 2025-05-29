@@ -41,13 +41,13 @@ const FeatureCard = ({ icon, title, description, index }: FeatureCardProps) => {
     <div 
       ref={cardRef}
       className={cn(
-        "feature-card glass-card opacity-0 p-4 sm:p-6",
+        "glow-card opacity-0 p-4 sm:p-6 rounded-2xl",
         "lg:hover:bg-gradient-to-br lg:hover:from-gray-800 lg:hover:to-mentor-900/20",
         "transition-all duration-300"
       )}
       style={{ animationDelay: `${0.1 * index}s` }}
     >
-      <div className="rounded-full bg-mentor-500/20 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-mentor-400 mb-4 sm:mb-5">
+      <div className="rounded-full bg-mentor-500/20 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-mentor-400 mb-4 sm:mb-5 border-glow">
         {icon}
       </div>
       <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-white">{title}</h3>

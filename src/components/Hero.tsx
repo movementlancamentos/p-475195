@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ArrowRight, Brain, Target, Users } from "lucide-react";
@@ -20,7 +19,7 @@ const Hero = () => {
   
   return (
     <section 
-      className="overflow-hidden relative bg-black" 
+      className="overflow-hidden relative bg-gradient-hero" 
       id="hero" 
       style={{
         padding: isMobile ? '100px 12px 40px' : '120px 20px 60px'
@@ -60,7 +59,7 @@ const Hero = () => {
             >
               <a 
                 href="#inscricao" 
-                className="flex items-center justify-center group w-full sm:w-auto text-center bg-mentor-500 hover:bg-mentor-600 text-white font-medium py-4 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="flex items-center justify-center group w-full sm:w-auto text-center glow-button text-white font-medium py-4 px-8 rounded-full"
               >
                 Garantir Minha Vaga
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -68,7 +67,7 @@ const Hero = () => {
               
               <a 
                 href="#detalhes" 
-                className="flex items-center justify-center w-full sm:w-auto text-center bg-transparent border border-gray-600 hover:border-mentor-500 text-gray-300 hover:text-mentor-500 font-medium py-4 px-8 rounded-full transition-all duration-300"
+                className="flex items-center justify-center w-full sm:w-auto text-center bg-transparent border-glow text-gray-300 hover:text-mentor-500 font-medium py-4 px-8 rounded-full transition-all duration-300"
               >
                 Saber Mais
               </a>
@@ -94,20 +93,20 @@ const Hero = () => {
           <div className="w-full lg:w-1/2 relative mt-6 lg:mt-0">
             <div className="relative z-10 animate-fade-in" style={{ animationDelay: "0.9s" }}>
               {/* AI/Tech visualization */}
-              <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl bg-gradient-to-br from-mentor-900 to-gray-900 p-8">
+              <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl glow-card p-8">
                 <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="bg-mentor-500/20 rounded-lg p-4 backdrop-blur-sm">
+                  <div className="bg-mentor-500/20 rounded-lg p-4 backdrop-blur-sm border-glow">
                     <Brain className="w-8 h-8 text-mentor-400 mb-2" />
                     <h3 className="text-sm font-semibold text-white">IA Personalizada</h3>
                     <p className="text-xs text-gray-400">Aprendizado adaptativo</p>
                   </div>
-                  <div className="bg-mentor-500/20 rounded-lg p-4 backdrop-blur-sm">
+                  <div className="bg-mentor-500/20 rounded-lg p-4 backdrop-blur-sm border-glow">
                     <Target className="w-8 h-8 text-mentor-400 mb-2" />
                     <h3 className="text-sm font-semibold text-white">Foco em Resultados</h3>
                     <p className="text-xs text-gray-400">Objetivos claros</p>
                   </div>
                 </div>
-                <div className="bg-mentor-500/20 rounded-lg p-4 backdrop-blur-sm">
+                <div className="bg-mentor-500/20 rounded-lg p-4 backdrop-blur-sm border-glow">
                   <Users className="w-8 h-8 text-mentor-400 mb-2" />
                   <h3 className="text-sm font-semibold text-white">Mentoria 1:1</h3>
                   <p className="text-xs text-gray-400">Acompanhamento personalizado com especialistas</p>

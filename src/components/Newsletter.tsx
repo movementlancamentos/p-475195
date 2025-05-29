@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { toast } from "@/components/ui/use-toast";
 
@@ -29,7 +28,7 @@ const Newsletter = () => {
   };
 
   return (
-    <section id="lista-vip" className="bg-black py-16 border-t border-gray-800">
+    <section id="lista-vip" className="bg-gradient-blue-intense py-16 border-t border-gray-800">
       <div className="section-container opacity-0 animate-on-scroll">
         <div className="max-w-6xl mx-auto text-center">
           <div className="flex items-center justify-center gap-4 mb-6">
@@ -48,17 +47,17 @@ const Newsletter = () => {
           
           {/* Benefits */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            <div className="bg-gray-900/50 p-6 rounded-xl border border-gray-700/50">
+            <div className="glow-card p-6 rounded-xl">
               <div className="text-2xl mb-2">🔥</div>
               <h3 className="text-white font-semibold mb-2">Acesso Antecipado</h3>
               <p className="text-gray-400 text-sm">Garanta sua vaga antes do lançamento público</p>
             </div>
-            <div className="bg-gray-900/50 p-6 rounded-xl border border-gray-700/50">
+            <div className="glow-card p-6 rounded-xl">
               <div className="text-2xl mb-2">💰</div>
               <h3 className="text-white font-semibold mb-2">Desconto Exclusivo</h3>
               <p className="text-gray-400 text-sm">Até 50% OFF para membros VIP</p>
             </div>
-            <div className="bg-gray-900/50 p-6 rounded-xl border border-gray-700/50">
+            <div className="glow-card p-6 rounded-xl">
               <div className="text-2xl mb-2">🎁</div>
               <h3 className="text-white font-semibold mb-2">Bônus Gratuitos</h3>
               <p className="text-gray-400 text-sm">Ebooks, templates e conteúdos exclusivos</p>
@@ -72,14 +71,14 @@ const Newsletter = () => {
                 value={email} 
                 onChange={e => setEmail(e.target.value)} 
                 placeholder="Seu melhor e-mail" 
-                className="w-full px-6 py-4 rounded-full border border-gray-600 bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-mentor-500 placeholder-gray-400" 
+                className="w-full px-6 py-4 rounded-full glow-input text-white focus:outline-none placeholder-gray-400" 
                 required 
               />
             </div>
             <button 
               type="submit" 
               disabled={isSubmitting} 
-              className="bg-mentor-500 hover:bg-mentor-600 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 whitespace-nowrap"
+              className="glow-button text-white font-bold py-4 px-10 rounded-full whitespace-nowrap"
             >
               {isSubmitting ? "Entrando..." : "🚀 ENTRAR NA LISTA VIP"}
             </button>

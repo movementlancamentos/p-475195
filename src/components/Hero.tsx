@@ -24,7 +24,7 @@ const Hero = () => {
       id="hero" 
       style={{
         padding: isMobile ? '60px 12px 40px' : '80px 20px 60px',
-        backgroundImage: `url('/lovable-uploads/d2ad9209-b5f8-4085-969f-bc34659790f6.png')`,
+        backgroundImage: `url('/astronaut-bg.png')`,
         backgroundPosition: 'center right',
         backgroundRepeat: 'no-repeat',
         backgroundSize: isMobile ? 'contain' : 'auto 80%'

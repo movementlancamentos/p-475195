@@ -24,17 +24,17 @@ const Hero = () => {
       id="hero" 
       style={{
         padding: isMobile ? '60px 12px 40px' : '80px 20px 60px',
-        backgroundImage: `url('/astronaut-bg.png')`,
-        backgroundPosition: 'center right',
+        backgroundImage: `url('/lovable-uploads/140f197a-0ed6-497b-b1ca-db1955d48f3d.png')`,
+        backgroundPosition: isMobile ? 'center' : 'center right',
         backgroundRepeat: 'no-repeat',
-        backgroundSize: isMobile ? 'contain' : 'auto 80%'
+        backgroundSize: isMobile ? 'cover' : 'auto 90%'
       }}
     >
-      {/* Overlay gradient to ensure text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+      {/* Enhanced overlay gradient to ensure text readability with new image */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/30"></div>
       
       {/* Additional glow effects */}
-      <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-mentor-gradient opacity-30 blur-3xl rounded-full"></div>
+      <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-mentor-gradient opacity-25 blur-3xl rounded-full"></div>
       
       <div className="container px-4 sm:px-6 lg:px-8 relative z-10" ref={containerRef}>
         <div className="flex flex-col items-start max-w-3xl">

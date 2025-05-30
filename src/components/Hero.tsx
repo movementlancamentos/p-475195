@@ -14,6 +14,12 @@ const Hero = () => {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     
+    // Debug: Log if the image loads
+    const img = new Image();
+    img.onload = () => console.log('Background image loaded successfully');
+    img.onerror = () => console.log('Background image failed to load');
+    img.src = '/lovable-uploads/140f197a-0ed6-497b-b1ca-db1955d48f3d.png';
+    
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
   
@@ -27,14 +33,15 @@ const Hero = () => {
         backgroundPosition: isMobile ? 'center' : 'center left',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
-        backgroundColor: '#0a0a0a' // Fallback color
+        backgroundColor: '#0a0a0a', // Fallback color
+        backgroundAttachment: 'scroll' // Ensure it's not fixed on mobile
       }}
     >
-      {/* Reduced overlay intensity to show more of the astronaut image */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
+      {/* Lighter overlay to show more of the astronaut image */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
       
       {/* Additional glow effects with reduced intensity */}
-      <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-mentor-gradient opacity-15 blur-3xl rounded-full"></div>
+      <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-mentor-gradient opacity-10 blur-3xl rounded-full"></div>
       
       <div className="container px-4 sm:px-6 lg:px-8 relative z-10" ref={containerRef}>
         <div className="flex flex-col items-start max-w-3xl">

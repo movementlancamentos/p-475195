@@ -23,17 +23,18 @@ const Hero = () => {
       id="hero" 
       style={{
         padding: isMobile ? '60px 12px 40px' : '80px 20px 60px',
-        backgroundImage: `url('/lovable-uploads/83265246-7f24-45fe-b53f-a5e980bf4be5.png')`,
-        backgroundPosition: isMobile ? 'center' : 'center right',
+        backgroundImage: `url('/lovable-uploads/140f197a-0ed6-497b-b1ca-db1955d48f3d.png')`,
+        backgroundPosition: isMobile ? 'center' : 'center left',
         backgroundRepeat: 'no-repeat',
-        backgroundSize: isMobile ? 'cover' : 'contain'
+        backgroundSize: 'cover',
+        backgroundColor: '#0a0a0a' // Fallback color
       }}
     >
-      {/* Enhanced overlay gradient optimized for the new space image */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/20"></div>
+      {/* Reduced overlay intensity to show more of the astronaut image */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
       
-      {/* Additional glow effects */}
-      <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-mentor-gradient opacity-20 blur-3xl rounded-full"></div>
+      {/* Additional glow effects with reduced intensity */}
+      <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-mentor-gradient opacity-15 blur-3xl rounded-full"></div>
       
       <div className="container px-4 sm:px-6 lg:px-8 relative z-10" ref={containerRef}>
         <div className="flex flex-col items-start max-w-3xl">

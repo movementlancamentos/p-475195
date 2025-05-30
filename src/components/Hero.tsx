@@ -14,11 +14,20 @@ const Hero = () => {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     
-    // Debug: Log if the image loads
-    const img = new Image();
-    img.onload = () => console.log('Background image loaded successfully');
-    img.onerror = () => console.log('Background image failed to load');
-    img.src = '/lovable-uploads/140f197a-0ed6-497b-b1ca-db1955d48f3d.png';
+    // Debug: Test multiple image paths to find the correct one
+    const imagePaths = [
+      '/lovable-uploads/140f197a-0ed6-497b-b1ca-db1955d48f3d.png',
+      '/public/lovable-uploads/140f197a-0ed6-497b-b1ca-db1955d48f3d.png',
+      '/astronaut-bg.png', // Fallback to existing image
+      '/hero-image.jpg' // Another fallback
+    ];
+    
+    imagePaths.forEach((path, index) => {
+      const img = new Image();
+      img.onload = () => console.log(`Image ${index + 1} loaded successfully: ${path}`);
+      img.onerror = () => console.log(`Image ${index + 1} failed to load: ${path}`);
+      img.src = path;
+    });
     
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
@@ -29,7 +38,7 @@ const Hero = () => {
       id="hero" 
       style={{
         padding: isMobile ? '60px 12px 40px' : '80px 20px 60px',
-        backgroundImage: `url('/lovable-uploads/140f197a-0ed6-497b-b1ca-db1955d48f3d.png')`,
+        backgroundImage: `url('/astronaut-bg.png')`, // Using existing fallback image first
         backgroundPosition: isMobile ? 'center' : 'center left',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
@@ -37,11 +46,11 @@ const Hero = () => {
         backgroundAttachment: 'scroll' // Ensure it's not fixed on mobile
       }}
     >
-      {/* Lighter overlay to show more of the astronaut image */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
+      {/* Much lighter overlay to clearly show the background image */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent"></div>
       
-      {/* Additional glow effects with reduced intensity */}
-      <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-mentor-gradient opacity-10 blur-3xl rounded-full"></div>
+      {/* Reduced glow effects */}
+      <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-mentor-gradient opacity-5 blur-3xl rounded-full"></div>
       
       <div className="container px-4 sm:px-6 lg:px-8 relative z-10" ref={containerRef}>
         <div className="flex flex-col items-start max-w-3xl">

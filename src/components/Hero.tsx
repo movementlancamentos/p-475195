@@ -14,20 +14,11 @@ const Hero = () => {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     
-    // Debug: Test multiple image paths to find the correct one
-    const imagePaths = [
-      '/lovable-uploads/140f197a-0ed6-497b-b1ca-db1955d48f3d.png',
-      '/public/lovable-uploads/140f197a-0ed6-497b-b1ca-db1955d48f3d.png',
-      '/astronaut-bg.png', // Fallback to existing image
-      '/hero-image.jpg' // Another fallback
-    ];
-    
-    imagePaths.forEach((path, index) => {
-      const img = new Image();
-      img.onload = () => console.log(`Image ${index + 1} loaded successfully: ${path}`);
-      img.onerror = () => console.log(`Image ${index + 1} failed to load: ${path}`);
-      img.src = path;
-    });
+    // Simple test to confirm the image loads
+    const img = new Image();
+    img.onload = () => console.log('Astronaut background image loaded successfully');
+    img.onerror = () => console.log('Astronaut background image failed to load');
+    img.src = '/lovable-uploads/913c6c15-821a-4f9e-bb61-8f815e9eb41d.png';
     
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
@@ -38,7 +29,7 @@ const Hero = () => {
       id="hero" 
       style={{
         padding: isMobile ? '60px 12px 40px' : '80px 20px 60px',
-        backgroundImage: `url('/astronaut-bg.png')`, // Using existing fallback image first
+        backgroundImage: `url('/lovable-uploads/913c6c15-821a-4f9e-bb61-8f815e9eb41d.png')`,
         backgroundPosition: isMobile ? 'center' : 'center left',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
@@ -46,10 +37,10 @@ const Hero = () => {
         backgroundAttachment: 'scroll' // Ensure it's not fixed on mobile
       }}
     >
-      {/* Much lighter overlay to clearly show the background image */}
+      {/* Light overlay to maintain text readability while showing the astronaut */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent"></div>
       
-      {/* Reduced glow effects */}
+      {/* Subtle glow effects */}
       <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-mentor-gradient opacity-5 blur-3xl rounded-full"></div>
       
       <div className="container px-4 sm:px-6 lg:px-8 relative z-10" ref={containerRef}>

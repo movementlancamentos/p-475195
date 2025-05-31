@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
@@ -17,7 +18,8 @@ const Hero = () => {
     
     // Test multiple image paths with the new astronaut image as first priority
     const imagesToTest = [
-      '/lovable-uploads/91d75fbd-b67f-4c9c-9f5c-2cacc0cbe70e.png', // New astronaut image
+      '/lovable-uploads/73d3fbbf-16ff-41ef-9fa0-64fbc8a439ad.png', // New astronaut image (priority)
+      '/lovable-uploads/91d75fbd-b67f-4c9c-9f5c-2cacc0cbe70e.png', // Previous astronaut image
       '/astronaut-bg.png', // Existing astronaut image
       '/hero-image.jpg', // Existing hero image
       '/lovable-uploads/140f197a-0ed6-497b-b1ca-db1955d48f3d.png', // Previous uploads
@@ -72,7 +74,7 @@ const Hero = () => {
       return {
         ...baseStyle,
         backgroundImage: `url('${workingImagePath}')`,
-        backgroundPosition: isMobile ? 'center center' : 'right center',
+        backgroundPosition: isMobile ? 'center center' : 'center center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundColor: '#0a0a0a'

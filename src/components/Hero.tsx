@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
@@ -16,14 +15,13 @@ const Hero = () => {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     
-    // Test multiple image paths to find one that works
+    // Test multiple image paths with the new astronaut image as first priority
     const imagesToTest = [
-      '/lovable-uploads/913c6c15-821a-4f9e-bb61-8f815e9eb41d.png', // Original attempt
-      '/lovable-uploads/140f197a-0ed6-497b-b1ca-db1955d48f3d.png', // New image you uploaded
+      '/lovable-uploads/91d75fbd-b67f-4c9c-9f5c-2cacc0cbe70e.png', // New astronaut image
       '/astronaut-bg.png', // Existing astronaut image
       '/hero-image.jpg', // Existing hero image
-      '/lovable-uploads/22d31f51-c174-40a7-bd95-00e4ad00eaf3.png', // Other existing images
-      '/lovable-uploads/5663820f-6c97-4492-9210-9eaa1a8dc415.png',
+      '/lovable-uploads/140f197a-0ed6-497b-b1ca-db1955d48f3d.png', // Previous uploads
+      '/lovable-uploads/22d31f51-c174-40a7-bd95-00e4ad00eaf3.png',
       '/lovable-uploads/af412c03-21e4-4856-82ff-d1a975dc84a9.png'
     ];
     
@@ -67,20 +65,20 @@ const Hero = () => {
   const getBackgroundStyle = () => {
     const baseStyle = {
       padding: isMobile ? '60px 12px 40px' : '80px 20px 60px',
-      backgroundPosition: isMobile ? 'center' : 'center left',
-      backgroundRepeat: 'no-repeat' as const,
-      backgroundSize: 'cover' as const,
-      backgroundAttachment: 'scroll' as const
     };
 
     if (workingImagePath) {
+      // Use individual CSS properties to avoid conflicts
       return {
         ...baseStyle,
         backgroundImage: `url('${workingImagePath}')`,
-        backgroundColor: '#0a0a0a' // Fallback color
+        backgroundPosition: isMobile ? 'center center' : 'right center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundColor: '#0a0a0a'
       };
     } else {
-      // Gradient fallback if no image works
+      // Clean gradient fallback without conflicting properties
       return {
         ...baseStyle,
         background: `
@@ -95,12 +93,12 @@ const Hero = () => {
   
   return (
     <section 
-      className="overflow-hidden relative bg-gradient-intense" 
+      className="overflow-hidden relative" 
       id="hero" 
       style={getBackgroundStyle()}
     >
-      {/* Light overlay to maintain text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent"></div>
+      {/* Overlay optimized for astronaut image readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black/20"></div>
       
       {/* Subtle glow effects */}
       <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-mentor-gradient opacity-5 blur-3xl rounded-full"></div>

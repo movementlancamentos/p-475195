@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
@@ -6,7 +5,6 @@ import { ArrowRight } from "lucide-react";
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [workingImagePath, setWorkingImagePath] = useState<string>('');
 
   useEffect(() => {
     const checkMobile = () => {
@@ -16,81 +14,20 @@ const Hero = () => {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     
-    // Test multiple image paths with the new astronaut image as first priority
-    const imagesToTest = [
-      '/lovable-uploads/73d3fbbf-16ff-41ef-9fa0-64fbc8a439ad.png', // New astronaut image (priority)
-      '/lovable-uploads/91d75fbd-b67f-4c9c-9f5c-2cacc0cbe70e.png', // Previous astronaut image
-      '/astronaut-bg.png', // Existing astronaut image
-      '/hero-image.jpg', // Existing hero image
-      '/lovable-uploads/140f197a-0ed6-497b-b1ca-db1955d48f3d.png', // Previous uploads
-      '/lovable-uploads/22d31f51-c174-40a7-bd95-00e4ad00eaf3.png',
-      '/lovable-uploads/af412c03-21e4-4856-82ff-d1a975dc84a9.png'
-    ];
-    
-    const testImage = (path: string, index: number) => {
-      return new Promise<string>((resolve, reject) => {
-        const img = new Image();
-        img.onload = () => {
-          console.log(`✅ Image ${index + 1} loaded successfully: ${path}`);
-          resolve(path);
-        };
-        img.onerror = () => {
-          console.log(`❌ Image ${index + 1} failed to load: ${path}`);
-          reject(path);
-        };
-        img.src = path;
-      });
-    };
-    
-    // Test images sequentially and use the first one that works
-    const findWorkingImage = async () => {
-      for (let i = 0; i < imagesToTest.length; i++) {
-        try {
-          const workingPath = await testImage(imagesToTest[i], i);
-          console.log(`🎉 Using working image: ${workingPath}`);
-          setWorkingImagePath(workingPath);
-          return;
-        } catch (error) {
-          // Continue to next image
-        }
-      }
-      console.log('⚠️ No background images found, using gradient fallback');
-      setWorkingImagePath(''); // Will use gradient fallback
-    };
-    
-    findWorkingImage();
-    
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
   
-  // Determine background style based on what image is available
+  // Simplified background style - only gradient
   const getBackgroundStyle = () => {
-    const baseStyle = {
+    return {
       padding: isMobile ? '60px 12px 40px' : '80px 20px 60px',
+      background: `
+        radial-gradient(ellipse at top, rgba(59, 130, 246, 0.5) 0%, rgba(37, 99, 235, 0.35) 25%, rgba(30, 64, 175, 0.2) 50%, transparent 70%),
+        radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(30, 64, 175, 0.3) 0%, transparent 50%),
+        #000000
+      `
     };
-
-    if (workingImagePath) {
-      // Use individual CSS properties to avoid conflicts
-      return {
-        ...baseStyle,
-        backgroundImage: `url('${workingImagePath}')`,
-        backgroundPosition: isMobile ? 'center center' : 'center center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        backgroundColor: '#0a0a0a'
-      };
-    } else {
-      // Clean gradient fallback without conflicting properties
-      return {
-        ...baseStyle,
-        background: `
-          radial-gradient(ellipse at top, rgba(59, 130, 246, 0.5) 0%, rgba(37, 99, 235, 0.35) 25%, rgba(30, 64, 175, 0.2) 50%, transparent 70%),
-          radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.4) 0%, transparent 50%),
-          radial-gradient(circle at 20% 80%, rgba(30, 64, 175, 0.3) 0%, transparent 50%),
-          #000000
-        `
-      };
-    }
   };
   
   return (
@@ -99,8 +36,8 @@ const Hero = () => {
       id="hero" 
       style={getBackgroundStyle()}
     >
-      {/* Overlay optimized for astronaut image readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black/20"></div>
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-black/20 to-black/10"></div>
       
       {/* Subtle glow effects */}
       <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-mentor-gradient opacity-5 blur-3xl rounded-full"></div>

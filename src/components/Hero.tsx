@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
@@ -5,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [workingImagePath, setWorkingImagePath] = useState<string>('');
 
   useEffect(() => {
     const checkMobile = () => {
@@ -14,30 +16,90 @@ const Hero = () => {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     
-    // Simple test to confirm the image loads
-    const img = new Image();
-    img.onload = () => console.log('Astronaut background image loaded successfully');
-    img.onerror = () => console.log('Astronaut background image failed to load');
-    img.src = '/lovable-uploads/913c6c15-821a-4f9e-bb61-8f815e9eb41d.png';
+    // Test multiple image paths to find one that works
+    const imagesToTest = [
+      '/lovable-uploads/913c6c15-821a-4f9e-bb61-8f815e9eb41d.png', // Original attempt
+      '/lovable-uploads/140f197a-0ed6-497b-b1ca-db1955d48f3d.png', // New image you uploaded
+      '/astronaut-bg.png', // Existing astronaut image
+      '/hero-image.jpg', // Existing hero image
+      '/lovable-uploads/22d31f51-c174-40a7-bd95-00e4ad00eaf3.png', // Other existing images
+      '/lovable-uploads/5663820f-6c97-4492-9210-9eaa1a8dc415.png',
+      '/lovable-uploads/af412c03-21e4-4856-82ff-d1a975dc84a9.png'
+    ];
+    
+    const testImage = (path: string, index: number) => {
+      return new Promise<string>((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => {
+          console.log(`✅ Image ${index + 1} loaded successfully: ${path}`);
+          resolve(path);
+        };
+        img.onerror = () => {
+          console.log(`❌ Image ${index + 1} failed to load: ${path}`);
+          reject(path);
+        };
+        img.src = path;
+      });
+    };
+    
+    // Test images sequentially and use the first one that works
+    const findWorkingImage = async () => {
+      for (let i = 0; i < imagesToTest.length; i++) {
+        try {
+          const workingPath = await testImage(imagesToTest[i], i);
+          console.log(`🎉 Using working image: ${workingPath}`);
+          setWorkingImagePath(workingPath);
+          return;
+        } catch (error) {
+          // Continue to next image
+        }
+      }
+      console.log('⚠️ No background images found, using gradient fallback');
+      setWorkingImagePath(''); // Will use gradient fallback
+    };
+    
+    findWorkingImage();
     
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+  
+  // Determine background style based on what image is available
+  const getBackgroundStyle = () => {
+    const baseStyle = {
+      padding: isMobile ? '60px 12px 40px' : '80px 20px 60px',
+      backgroundPosition: isMobile ? 'center' : 'center left',
+      backgroundRepeat: 'no-repeat' as const,
+      backgroundSize: 'cover' as const,
+      backgroundAttachment: 'scroll' as const
+    };
+
+    if (workingImagePath) {
+      return {
+        ...baseStyle,
+        backgroundImage: `url('${workingImagePath}')`,
+        backgroundColor: '#0a0a0a' // Fallback color
+      };
+    } else {
+      // Gradient fallback if no image works
+      return {
+        ...baseStyle,
+        background: `
+          radial-gradient(ellipse at top, rgba(59, 130, 246, 0.5) 0%, rgba(37, 99, 235, 0.35) 25%, rgba(30, 64, 175, 0.2) 50%, transparent 70%),
+          radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.4) 0%, transparent 50%),
+          radial-gradient(circle at 20% 80%, rgba(30, 64, 175, 0.3) 0%, transparent 50%),
+          #000000
+        `
+      };
+    }
+  };
   
   return (
     <section 
       className="overflow-hidden relative bg-gradient-intense" 
       id="hero" 
-      style={{
-        padding: isMobile ? '60px 12px 40px' : '80px 20px 60px',
-        backgroundImage: `url('/lovable-uploads/913c6c15-821a-4f9e-bb61-8f815e9eb41d.png')`,
-        backgroundPosition: isMobile ? 'center' : 'center left',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        backgroundColor: '#0a0a0a', // Fallback color
-        backgroundAttachment: 'scroll' // Ensure it's not fixed on mobile
-      }}
+      style={getBackgroundStyle()}
     >
-      {/* Light overlay to maintain text readability while showing the astronaut */}
+      {/* Light overlay to maintain text readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent"></div>
       
       {/* Subtle glow effects */}
